@@ -1,0 +1,31 @@
+name: Build and Release CV
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.tex' # Le script ne se lance que si le code LaTeX est midifié
+
+jobs:
+  build_and_release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Indispensable pour autoriser le script à publier la Release
+
+    steps:
+      - name: Récupérer le code source
+        uses: actions/checkout@v4
+
+      - name: Compiler le document LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: cv-tylden-hounsa.tex
+          # latexmk_use_lualatex: true # Décommente cette ligne si tu utilises LuaLaTeX au lieu de pdfLaTeX
+
+      - name: Publier le PDF dans les Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: "Dernière version du CV"
+          files: cv-tylden-hounsa.pdf

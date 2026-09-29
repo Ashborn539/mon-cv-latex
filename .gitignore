@@ -1,0 +1,18 @@
+# Fichiers temporaires de compilation LaTeX
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.synctex.gz
+*.toc
+
+# Fichiers de configuration liés aux éditeurs ou OS
+.vscode/
+.DS_Store
+Thumbs.db
