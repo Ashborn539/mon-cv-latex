@@ -1,205 +1,127 @@
-\documentclass[a4paper]{article}
-    \usepackage{fullpage}
-    \usepackage{amsmath}
-    \usepackage{amssymb}
-    \usepackage{textcomp}
-    \usepackage[utf8]{inputenc}
-    \usepackage[T1]{fontenc}
-    \usepackage[hidelinks]{hyperref}
-    \usepackage[left=2cm, right=2cm, top=2cm]{geometry}
-    \usepackage{longtable}
-    \textheight=10in
-    \pagestyle{empty}
-    \raggedright
+\documentclass[10pt,a4paper]{article}
 
-    %\renewcommand{\encodingdefault}{cg}
-%\renewcommand{\rmdefault}{lgrcmr}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage{charter}
+\usepackage{anyfontsize}
+\usepackage{microtype}
+\usepackage[a4paper,left=1.7cm,right=1.7cm,top=1.3cm,bottom=1.1cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
 
-\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+\definecolor{accent}{RGB}{31,78,95}
 
-% DEFINITIONS FOR RESUME %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[colorlinks=true,urlcolor=accent,linkcolor=accent,%
+  pdftitle={CV Tylden Hounsa},pdfauthor={Tylden Hounsa}]{hyperref}
 
-\newcommand{\area} [2] {
-    \vspace*{-9pt}
-    \begin{verse}
-        \textbf{#1}   #2
-    \end{verse}
-}
+\renewcommand\normalsize{\fontsize{10.5}{13}\selectfont}
+\normalsize
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
 
-\newcommand{\lineunder} {
-    \vspace*{-8pt} \\
-    \hspace*{-18pt} \hrulefill \\
-}
+\setlist[itemize]{leftmargin=1.1em,labelsep=0.5em,itemsep=0.5pt,%
+  topsep=1.5pt,parsep=0pt,partopsep=0pt,label={\color{accent}\textbullet}}
 
-\newcommand{\header} [1] {
-    {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
-    \vspace*{-6pt} \lineunder
-}
+% Titre de section : capitales espacées, filet fin
+\newcommand{\sect}[1]{%
+  \vspace{9pt}\par
+  {\color{accent}\small\bfseries\textls[120]{\MakeUppercase{#1}}}\par
+  \vspace{-2.5pt}
+  {\color{accent}\rule{\linewidth}{0.4pt}}\par
+  \vspace{3.5pt}}
 
-\newcommand{\employer} [3] {
-    { \textbf{#1} (#2)\\ \underline{\textbf{\emph{#3}}}\\  }
-}
+% Ligne d'entrée : gauche en gras, droite alignée
+\newcommand{\entry}[2]{\textbf{#1}\hfill #2\par}
 
-\newcommand{\contact} [3] {
-    \vspace*{-10pt}
-    \begin{center}
-        {\Huge \scshape {#1}}\\
-        #2 \\ #3
-    \end{center}
-    \vspace*{-8pt}
-}
+% Projet : titre, lien GitHub facultatif, technologies à droite
+\newcommand{\proj}[3]{\textbf{#1}%
+  \ifx\relax#2\relax\else\ \textcolor{accent}{\textbar}\ \href{#2}{GitHub}\fi
+  \hfill{\small\itshape #3}\par}
 
-\newenvironment{achievements}{
-    \begin{list}
-        {$\bullet$}{\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}
-    \end{list}
-}
+\begin{document}
+\raggedright
 
-\newcommand{\schoolwithcourses} [4] {
-    \textbf{#1} #2 $\bullet$ #3\\
-    #4 \\
-    \vspace*{5pt}
-}
+% En-tête
+\begin{minipage}[t]{0.56\linewidth}
+  {\fontsize{25}{27}\selectfont\bfseries Tylden HOUNSA}\par
+  \vspace{4pt}
+  {\color{accent}\bfseries Étudiant en L3 MIASHS}\par
+  Recherche un stage en data analyse ou data science\par
+\end{minipage}\hfill
+\begin{minipage}[t]{0.42\linewidth}\raggedleft\small
+  \href{mailto:tyldenhounsa@gmail.com}{tyldenhounsa@gmail.com}\\
+  \href{tel:+33745639838}{07 45 63 98 38}\\
+  Montpellier\\
+  \href{https://www.linkedin.com/in/tylden-hounsa-b14559349}{Mon LinkedIn}\\
+  \href{https://github.com/Ashborn539}{Mon GitHub}
+\end{minipage}
 
-\newcommand{\school} [4] {
-    \textbf{#1} #2 $\bullet$ #3\\
-    #4 \\
-}
+\vspace{9pt}
 
-% END RESUME DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%
+Étudiant en troisième année de MIASHS à Montpellier. Projets menés de la collecte des données à la restitution, avec nettoyage, analyse statistique, visualisation et modèles de machine learning. Travail principalement en R et Python, SQL pour les bases de données.
 
-    \begin{document}
-    \vspace*{-40pt}
+\sect{Formation}
+\entry{Université Paul-Valéry Montpellier 3 \textcolor{accent}{\textbar}\ Montpellier}{Depuis septembre 2024}
+Licence 3 MIASHS : Mathématiques et Informatique Appliquées aux Sciences Humaines et Sociales\par
 
-    
+\sect{Projets}
+\proj{Mortalité et pollution aux particules fines (2026)}{https://github.com/Ashborn539/projet-SDD-X-BDD}{R, SQL, ggplot2, R Markdown, WAMP}
+\begin{itemize}
+  \item Étude de la corrélation entre le taux de mortalité et le niveau de particules fines (PM2.5) selon les pays.
+  \item Collecte, nettoyage, modélisation et visualisation des données.
+  \item Conception de la base de données relationnelle et rapport complet rédigé en R Markdown.
+\end{itemize}
+\vspace{5pt}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     Profile
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \vspace*{-2pt}
-  \begin{center}
-    {\Huge \scshape {Tylden HOUNSA}}\\
-    \vspace*{2pt}
-    \ {Étudiant MIASHS - Data Analyst / Data Scientist}\\
-    \vspace*{2pt}
-    \href{mailto:tyldenhounsa@gmail.com}{tyldenhounsa@gmail.com} | \href{tel:0745639838}{0745639838} | Montpellier\\
-    \vspace*{2pt}
-        \textbf{\href{https://www.linkedin.com/in/tylden-hounsa-b14559349}{LinkedIn | }}\textbf{\href{https://github.com/Ashborn539}{GitHub}}\\
-  \end{center}
+\proj{Site web de vente de PC (en cours, 2026)}{https://github.com/Ashborn539/TyldenHounsa}{HTML, CSS, PHP, JavaScript, AJAX, jQuery, WAMP}
+\begin{itemize}
+  \item Interface utilisateur et fonctions d'achat en ligne. Logique applicative et interactions dynamiques gérées en PHP, AJAX et jQuery sur un serveur local WAMP.
+\end{itemize}
+\vspace{5pt}
 
-    \vspace{1mm}
-    Étudiant en troisième année de MIASHS, à l'intersection des mathématiques, de la statistique et de l'informatique. Expériences en nettoyage et exploration de données, analyse statistique, visualisation et premiers modèles de machine learning. Recherche un stage, une alternance ou une première expérience en data analysis ou data science.
+\proj{Projet de machine learning sous Orange (2025)}{https://github.com/Ashborn539/ML_avec_orange}{Orange Data Mining}
+\begin{itemize}
+  \item Analyse d'un jeu de données réel : classification et régression (supervisé), clustering (non supervisé).
+  \item Comparaison des modèles entre eux et interprétation des résultats.
+\end{itemize}
+\vspace{5pt}
 
+\proj{Simulation proie-prédateur (2025)}{https://github.com/Ashborn539/ecosysteme-proie-predateur}{Python, Java, TCP/IP, sockets}
+\begin{itemize}
+  \item Modélisation d'un écosystème loups-moutons, simulation développée en Python.
+  \item Interface graphique Java reliée en temps réel à la simulation par une architecture client-serveur TCP en local.
+\end{itemize}
+\vspace{5pt}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %     Education
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \header{Education}
-      \vspace{2mm}
-    \textbf{Université Paul-Valéry Montpellier 3}\hfill Montpellier\\
-Mathématiques et Informatique Appliquées aux Sciences Humaines et Sociales (L3) \hfill Septembre 2024 - Présent\\
-
-\vspace{2mm}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %     Experience
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \header{Expérience}
-      \vspace{2mm}
-
-
-    \textbf{Pachamama}\textbf{ | Chef de partie (temps partiel)} \hfill Juvignac | Août 2025 - Présent\\
-          \vspace{-3mm}
-\begin{itemize} \itemsep -3pt
-\item  Gestion autonome du poste de production froid et préparation des plats lors des services.
-\item  Évolution du poste de commis de cuisine vers celui de chef de partie, avec prise en charge complète du poste.
-\item  Organisation et maintien du niveau d'exigence sous pression, en parallèle des études.
+\proj{Bomberman, version terminale (2024)}{https://github.com/Ashborn539/terminal-bomberman}{Python, algorithmes}
+\begin{itemize}
+  \item Recréation du jeu en ligne de commande, avec gestion des états et de la logique de jeu sur des structures de données.
 \end{itemize}
 
+\sect{Compétences}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}p{4.8cm}@{}p{\dimexpr\linewidth-4.8cm\relax}@{}}
+  \textbf{Langages} & Python, R, SQL, Java, PHP, JavaScript, HTML/CSS \\
+  \textbf{Analyse et visualisation} & pandas, NumPy, matplotlib, ggplot2, R Markdown, Excel, Tableau \\
+  \textbf{Machine learning} & scikit-learn, Orange Data Mining, apprentissage supervisé et non supervisé \\
+  \textbf{Outils} & Git/GitHub, VS Code, RStudio, WAMP/MySQL \\
+\end{tabular}
 
-	\textbf{Café Jules}\textbf{ | Commis de cuisine (saisonnier)} \hfill La Grande Motte | Mai 2025 - Septembre 2025\\
-              \vspace{-3mm}
-\begin{itemize} \itemsep -3pt
-\item  Mise en place et préparation des plats lors des services.
-\item  Gestion autonome du poste de production froid et respect des exigences d'hygiène et de qualité.
+\sect{Expérience professionnelle}
+\entry{Pachamama \textcolor{accent}{\textbar}\ Chef de partie (temps partiel)}{Juvignac \textcolor{accent}{\textbar}\ Depuis août 2025}
+\begin{itemize}
+  \item Passage de commis de cuisine à chef de partie, avec la responsabilité complète du poste de production froid.
+  \item Préparation des plats en service, rythme tenu sous pression en parallèle des études.
+\end{itemize}
+\vspace{5pt}
+
+\entry{Café Jules \textcolor{accent}{\textbar}\ Commis de cuisine (saisonnier)}{La Grande Motte \textcolor{accent}{\textbar}\ De mai à septembre 2025}
+\begin{itemize}
+  \item Mise en place et préparation des plats en service, poste de production froid tenu en autonomie.
+  \item Respect des exigences d'hygiène et de qualité.
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     Skills
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \header{Compétences}
-  \vspace{2mm}
-
-  \begin{longtable}{p{4cm}p{12cm}}
-    Langages : & Python, R, Java, SQL, HTML/CSS \\
-    Analyse et visualisation : & pandas, NumPy, matplotlib, ggplot2, R Markdown, Excel, Tableau \\
-    Machine learning : & Orange Data Mining, scikit-learn, apprentissage supervisé et non supervisé \\
-    Outils et environnements : & Git/GitHub, VS Code, RStudio, WAMP/MySQL \\
-  \end{longtable}
-  \vspace{1mm}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
-    %     Projects
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \header{Projets / Open-Source}
-      \vspace{2mm}
-
-        {\textbf{Site web de vente de PC (en cours, 2026)}}\textbf{ | \href{https://github.com/Ashborn539/TyldenHounsa}{GitHub}}\hfill{\sl HTML, PHP, CSS, AJAX, jQuery, JavaScript, WAMP}\\
-                    \vspace{-3mm}
-\begin{itemize} \itemsep -3pt
-\item  Développement d'un site web de vente de PC avec une interface utilisateur et des fonctionnalités d'achat en ligne.
-\item  Utilisation de PHP, JavaScript, AJAX et jQuery pour gérer la logique applicative et les interactions dynamiques sur un serveur local WAMP.
-\end{itemize}
-                    \vspace*{3mm}
-
-
-    {\textbf{Mortalité et pollution aux particules fines (2026)}}\textbf{ | \href{https://github.com/Ashborn539/projet-SDD-X-BDD}{GitHub}}\hfill{\sl R, SQL, ggplot2, R Markdown, WAMP}\\
-          \vspace{-3mm}
-\begin{itemize} \itemsep -3pt
-\item  Étude statistique de la corrélation entre le taux de mortalité mondial et le niveau de particules fines (PM2.5) par pays.
-\item  Collecte, nettoyage, modélisation et visualisation des données.
-\item  Conception d'une base de données relationnelle et rédaction d'un rapport complet en R Markdown.
-\end{itemize}
-          \vspace*{3mm}
-
-
-        {\textbf{Simulation proie-prédateur (2025)}}\textbf{ | \href{https://github.com/Ashborn539/ecosysteme-proie-predateur}{GitHub}}\hfill{\sl Python, Java, TCP/IP, sockets}\\
-          \vspace{-3mm}
-\begin{itemize} \itemsep -3pt
-\item  Modélisation d'un écosystème loups-moutons avec une simulation développée en Python.
-\item  Communication en temps réel avec une interface graphique Java via une architecture client-serveur TCP locale.
-\end{itemize}
-          \vspace*{3mm}
-
-                {\textbf{Projet machine learning sous Orange (2025)}}\hfill{\sl Orange Data Mining}\\
-                    \vspace{-3mm}
-\begin{itemize} \itemsep -3pt
-\item  Exploration d'un jeu de données réel avec des méthodes de classification, régression et clustering.
-\item  Comparaison des modèles et interprétation des résultats.
-\end{itemize}
-                    \vspace*{3mm}
-
-                {\textbf{Bomberman, version terminale (2024)}}\textbf{ | \href{https://github.com/Ashborn539/terminal-bomberman}{GitHub}}\hfill{\sl Python, algorithmes}\\
-                    \vspace{-3mm}
-\begin{itemize} \itemsep -3pt
-\item  Recréation du jeu en ligne de commande, avec gestion des états, des structures de données et de la logique de jeu.
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %
-      %     Certifications
-      %
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \ 
-    \end{document}
+\end{document}
